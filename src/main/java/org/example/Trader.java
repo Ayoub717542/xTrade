@@ -40,5 +40,12 @@ public class Trader extends Person{
         }
         this.portfolio.Ajouter_Asset_to_portoflio(A,quantete);
         System.out.println("Actif acquis avec succès");
+        if (A instanceof Stock) {
+            System.out.println("Action achetée avec succès");
+        } else if (A instanceof CryptoCurrency) {
+            System.out.println("Crypto-monnaie achetée avec succès");
+        } else {
+            System.out.println("Actif acheté avec succès");
+        }
     }
 }
