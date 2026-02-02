@@ -8,6 +8,10 @@ public class Person {
         this.Id=Id;
         this.Nom=Nom;
     }
+    public Person(){
+        this.Id=Id;
+        this.Nom=Nom;
+    }
 
     public int getId() {
         return Id;

@@ -1,19 +1,25 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Trader extends Person{
     private Double Solde;
     private Portfolio<Asset> portfolio;
     ArrayList<Transaction> transactions;
 
-    public Trader(int id, String Nom, Double Solde,Portfolio<Asset> portfolio){
+    public Trader(int id, String Nom, double Solde,Portfolio<Asset> portfolio){
         super(id,Nom);
         this.Solde=Solde;
         this.transactions=new ArrayList<>();
         this.portfolio = portfolio;
     }
-    public Double getSolde() {return Solde;}
+    public Trader(){
+        this.Solde=0.0;
+        this.transactions=new ArrayList<>();
+        this.portfolio = new Portfolio<>();
+    }
+    public double getSolde() {return Solde;}
     public ArrayList<Transaction> getTransactions() {return transactions;}
     public Portfolio getPortfolio() {return portfolio;}
 
@@ -26,7 +32,17 @@ public class Trader extends Person{
             System.out.println("Aucun portfolio");
         }
     }
-    public void Acheter_Actif( Asset A,double quantete){
+
+    @Override
+    public String toString() {
+        return "Trader{" +
+                "Solde=" + Solde +
+                ", portfolio=" + portfolio +
+                ", transactions=" + transactions +
+                '}';
+    }
+
+    public void Acheter_Actif(Asset A, double quantete){
         double totalPrice=0.0;
         TradingPlatform t = new TradingPlatform();
         if (quantete>0){
@@ -37,8 +53,14 @@ public class Trader extends Person{
         }
         if(this.Solde>=totalPrice){
             this.Solde-=totalPrice;
+        }else{
+            System.out.println("Solde Insufficient");
+            return;
         }
         this.portfolio.Ajouter_Asset_to_portoflio(A,quantete);
+        Transaction transaction = new Transaction("ACHAT", A.getName(), quantete, (float) A.getPrice(), new Date());
+        // 4️⃣ Save transaction
+        this.transactions.add(transaction);
         System.out.println("Actif acquis avec succès");
         if (A instanceof Stock) {
             System.out.println("Action achetée avec succès");
