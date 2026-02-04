@@ -4,11 +4,13 @@ import java.util.ArrayList;
 public class TradingPlatform {
     ArrayList<Trader>traders;
     ArrayList<Asset>assets;
+    ArrayList<Transaction>transactions;
 
-public TradingPlatform(){
-    this.traders=new ArrayList<>();
-    this.assets=new ArrayList<>();
-}
+    public TradingPlatform(){
+        this.traders=new ArrayList<>();
+        this.assets=new ArrayList<>();
+        this.transactions = new ArrayList<>();
+    }
     public void ajouter_Actif(Asset A){
         assets.add(A);
         System.out.println("Actif ajouté avec succés");
@@ -36,6 +38,23 @@ public TradingPlatform(){
             System.out.println("Nome : "+a.getName());
             System.out.println("Prix : "+a.getPrice());
             System.out.println("Type : "+a.getType());
+        }
+    }
+    public void  Afficher_Transactions(int trader){
+        Trader found_Trader=null;
+    for(Trader tra : traders){
+        if(tra.getId()==trader){
+            found_Trader = tra;
+            break;
+        }
+        Trader finalFound_Trader = found_Trader;
+        transactions.stream()
+                .filter(t -> t.getTrader().equals(finalFound_Trader.getNom()))
+                .forEach(System.out::println);
+    }
+        if (found_Trader == null) {
+            System.out.println("Trader introuvable");
+            return;
         }
     }
 

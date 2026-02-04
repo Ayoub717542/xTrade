@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -33,14 +34,6 @@ public class Trader extends Person{
         }
     }
 
-    @Override
-    public String toString() {
-        return "Trader{" +
-                "Solde=" + Solde +
-                ", portfolio=" + portfolio +
-                ", transactions=" + transactions +
-                '}';
-    }
 
     public void Acheter_Actif(Asset A, double quantete){
         double totalPrice=0.0;
@@ -58,7 +51,7 @@ public class Trader extends Person{
             return;
         }
         this.portfolio.Ajouter_Asset_to_portoflio(A,quantete);
-        Transaction transaction = new Transaction("ACHAT", A.getName(), quantete, (float) A.getPrice(), new Date());
+        Transaction transaction = new Transaction(A.getType(), A.getName(), quantete, (float) A.getPrice(), LocalDate.now());
         // 4️⃣ Save transaction
         this.transactions.add(transaction);
         System.out.println("Actif acquis avec succès");
@@ -70,4 +63,5 @@ public class Trader extends Person{
             System.out.println("Actif acheté avec succès");
         }
     }
+
 }

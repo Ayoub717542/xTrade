@@ -19,10 +19,11 @@ import java.util.Scanner;
                                System.out.println("2.  Ajouter un Actif (Action / Crypto)");
                                System.out.println("3.  Afficher le Portefeuille");
                                System.out.println("4.  Afficher les Traider");
-                               System.out.println("5.  Afficher les Actif");
+                               System.out.println("5.  Afficher les Transactions ");
+                               System.out.println("6.  Afficher les Actif");
                                System.out.println("     ===== Client Menu =====     ");
-                               System.out.println("6.  Acheter un Actif");
-                               System.out.println("7.  Vendre un Actif");
+                               System.out.println("7.  Acheter un Actif");
+                               System.out.println("8.  Vendre un Actif");
                                System.out.println("0.  Quitter");
                                System.out.print("Entrez votre choix : ");
                                choice = scanner.nextInt();
@@ -66,11 +67,17 @@ import java.util.Scanner;
                                        System.out.println("Les Traiders :");
                                        trading.Afficher_Trader();
                                        break;
-                                   case 5 :
+                                   case 5:
+                                       System.out.println("Entre le trader ID");
+                                       int trader_ID=scanner.nextInt();
+                                       System.out.println("les Transaction de cette Trader est :\n");
+                                       trading.Afficher_Transactions(trader_ID);
+                                       break;
+                                   case 6 :
                                        System.out.println("Les Actif : ");
                                        trading.Afiicher_Actif();
                                        break;
-                                   case 6:
+                                   case 7:
                                        System.out.println("Entre Trader Id : ");
                                        int trader_id= scanner.nextInt();
                                        Trader traderTrouve = null;
