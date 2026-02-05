@@ -40,22 +40,21 @@ public class TradingPlatform {
             System.out.println("Type : "+a.getType());
         }
     }
-    public void  Afficher_Transactions(int trader){
+    public void  Afficher_Transactions(int traderid){
         Trader found_Trader=null;
     for(Trader tra : traders){
-        if(tra.getId()==trader){
+        if(tra.getId()==traderid){
             found_Trader = tra;
             break;
-        }
-        Trader finalFound_Trader = found_Trader;
-        transactions.stream()
-                .filter(t -> t.getTrader().equals(finalFound_Trader.getNom()))
-                .forEach(System.out::println);
-    }
+        }}
         if (found_Trader == null) {
             System.out.println("Trader introuvable");
             return;
         }
+    Trader finalFound_Trader = found_Trader;
+        transactions.stream()
+                .filter(t -> t.getTrader().getId() == finalFound_Trader.getId())
+                .forEach(System.out::println);
     }
 
 }

@@ -12,7 +12,6 @@ import java.util.Scanner;
                        int choice ;
                        do {
                            try {
-                               // Display menu
                                System.out.println("===== X-Trading Platform =====");
                                System.out.println("     ===== Admin Menu =====     ");
                                System.out.println("1.  Ajouter un Trader");

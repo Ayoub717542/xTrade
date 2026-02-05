@@ -11,6 +11,7 @@ public class Transaction {
     private LocalDate date;
 
     public Transaction(String type_Operation, String actif, Double quantite, float prix , LocalDate date){
+        Trader trader;
         this.type_Operation=type_Operation;
         this.actif=actif;
         this.quantite=quantite;
