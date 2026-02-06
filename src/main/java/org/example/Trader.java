@@ -52,7 +52,6 @@ public class Trader extends Person{
         }
         this.portfolio.Ajouter_Asset_to_portoflio(A,quantete);
         Transaction transaction = new Transaction(A.getType(), A.getName(), quantete, (float) A.getPrice(), LocalDate.now());
-        // 4️⃣ Save transaction
         this.transactions.add(transaction);
         System.out.println("Actif acquis avec succès");
         if (A instanceof Stock) {

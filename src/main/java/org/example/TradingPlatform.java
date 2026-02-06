@@ -15,7 +15,6 @@ public class TradingPlatform {
         assets.add(A);
         System.out.println("Actif ajouté avec succés");
     }
-
     public void ajouter_Trader(Trader trader){
         traders.add(trader);
         System.out.println("Trader ajouté avec succès");
@@ -27,10 +26,8 @@ public class TradingPlatform {
             System.out.println("Nom : "+trader.getNom());
             System.out.println("Solde :"+trader.getSolde());
             System.out.println("Transactions :"+trader.getTransactions());
-
         }
     }
-
     public void Afiicher_Actif(){
         System.out.println("********* Les Actife **********");
         for(Asset a: assets){
@@ -56,5 +53,15 @@ public class TradingPlatform {
                 .filter(t -> t.getTrader().getId() == finalFound_Trader.getId())
                 .forEach(System.out::println);
     }
+    public ArrayList<Transaction> getTransactions() {
+        ArrayList<Transaction> result = new ArrayList<>();
+        int i = 0;
 
+        while (i < transactions.size()) {
+            result.add(transactions.get(i));
+            i++;
+        }
+
+        return result;
+    }
 }
