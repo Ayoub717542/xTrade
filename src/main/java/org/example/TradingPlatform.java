@@ -52,16 +52,16 @@ public class TradingPlatform {
         transactions.stream()
                 .filter(t -> t.getTrader().getId() == finalFound_Trader.getId())
                 .forEach(System.out::println);
-    }
-    public ArrayList<Transaction> getTransactions() {
-        ArrayList<Transaction> result = new ArrayList<>();
-        int i = 0;
-
-        while (i < transactions.size()) {
-            result.add(transactions.get(i));
-            i++;
-        }
-
-        return result;
-    }
-}
+    }}
+//    public ArrayList<Transaction> getTransactions() {
+//        ArrayList<Transaction> result = new ArrayList<>();
+//        int i = 0;
+//
+//        while (i < transactions.size()) {
+//            result.add(transactions.get(i));
+//            i++;
+//        }
+//
+//        return result;
+//    }
+//}
