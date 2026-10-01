@@ -1,5 +1,6 @@
 package org.example;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TradingPlatform {
     ArrayList<Trader>traders;
@@ -46,22 +47,25 @@ public class TradingPlatform {
         }}
         if (found_Trader == null) {
             System.out.println("Trader introuvable");
-            return;
-        }
+            return; }
     Trader finalFound_Trader = found_Trader;
         transactions.stream()
                 .filter(t -> t.getTrader().getId() == finalFound_Trader.getId())
                 .forEach(System.out::println);
-    }}
-//    public ArrayList<Transaction> getTransactions() {
-//        ArrayList<Transaction> result = new ArrayList<>();
-//        int i = 0;
-//
-//        while (i < transactions.size()) {
-//            result.add(transactions.get(i));
-//            i++;
-//        }
-//
-//        return result;
-//    }
-//}
+    }
+    public ArrayList<Transaction> getTransactions() {
+        ArrayList<Transaction> result = new ArrayList<>();
+        int i = 0;
+        while (i < transactions.size()) {
+            result.add(transactions.get(i));
+            i++;
+        }
+        return result;
+    }
+    public List<String> getNom(List<String> Nom){
+return   Nom.stream()
+        .filter(n -> n.length()>4)
+        .toList();
+    }
+
+}
